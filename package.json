@@ -4,15 +4,25 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": ""
+    "test": "jest --watchAll --coverage",
+    "est": "jest --env=./test/custom-test-env.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "testEnvironment": "jsdom"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@babel/preset-env": "^7.17.10",
     "babel-jest": "^28.0.3",
-    "jest": "^28.0.3"
+    "jest": "^28.0.3",
+    "jsdom": "^19.0.0",
+    "jest-environment-jsdom": "^28.1.0"
   }
 }
