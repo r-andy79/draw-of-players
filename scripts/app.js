@@ -1,7 +1,9 @@
-const people = ['Radek ', ' Darek K', 'Darek Kr ', 'Grzesiek ', ' Piotr', ' Janusz', 'Dawid', 'Filip', 'Kajtek', 'Ela'];
+// const people = ['Radek ', ' Darek K', 'Darek Kr ', 'Grzesiek ', ' Piotr', ' Janusz', 'Dawid', 'Filip', 'Kajtek', 'Ela'];
+// import { submitHandler } from "./fun.js";
+const formEl = document.querySelector('form');
+
 
 const playersList = document.querySelector('.players-list');
-const formEl = document.querySelector('form');
 const inputEl = document.querySelector('.name');
 const messageEl = document.querySelector('.message');
 
@@ -42,9 +44,12 @@ export const createPairs = (arr) => {
 }
 
 export const buildPairsList = (players, parent) => {
+  // console.log(parent instanceof Node);
   players.forEach(el => {
     const listItem = document.createElement('li');
+    // console.log(typeof listItem);
     listItem.textContent = `${el[0]} : ${el[1]}`;
+    // console.log(parent.appendChild);
     parent.appendChild(listItem);
   })
   return parent;
@@ -66,6 +71,5 @@ export const submitHandler = event => {
   const players = createPairs(randomArr);
   buildPairsList(players, playersList);
 }
-
 
 formEl?.addEventListener('submit', submitHandler)
