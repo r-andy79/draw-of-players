@@ -1,8 +1,4 @@
-// const people = ['Radek ', ' Darek K', 'Darek Kr ', 'Grzesiek ', ' Piotr', ' Janusz', 'Dawid', 'Filip', 'Kajtek', 'Ela'];
-// import { submitHandler } from "./fun.js";
 const formEl = document.querySelector('form');
-
-
 const playersList = document.querySelector('.players-list');
 const inputEl = document.querySelector('.name');
 const messageEl = document.querySelector('.message');
@@ -44,12 +40,9 @@ export const createPairs = (arr) => {
 }
 
 export const buildPairsList = (players, parent) => {
-  // console.log(parent instanceof Node);
   players.forEach(el => {
     const listItem = document.createElement('li');
-    // console.log(typeof listItem);
     listItem.textContent = `${el[0]} : ${el[1]}`;
-    // console.log(parent.appendChild);
     parent.appendChild(listItem);
   })
   return parent;
@@ -57,19 +50,23 @@ export const buildPairsList = (players, parent) => {
 
 export const submitHandler = event => {
   event.preventDefault();
-  messageEl.textContent = "";
-  const str = inputEl.value;
-  const strArr = stringToArr(str);
-  const trimmedArr = trimmed(strArr);
-  const checkEven = checkIfEven(trimmedArr);
-  if(!checkEven) {
-    messageEl.textContent = "Podano nieparzystą liczbę osób, dodaj kogoś jeszcze."
-    return;
+  if(inputEl.value === "") {
+    messageEl.textContent = "Podaj imiona zawodników"
+  } else {
+    messageEl.textContent = "";
+    const str = inputEl.value;
+    const strArr = stringToArr(str);
+    const trimmedArr = trimmed(strArr);
+    const checkEven = checkIfEven(trimmedArr);
+    if(!checkEven) {
+      messageEl.textContent = "Podano nieparzystą liczbę osób, dodaj kogoś jeszcze.)."
+      return;
+    }
+    inputEl.value = "";
+    const randomArr = createRandomArr(trimmedArr);
+    const players = createPairs(randomArr);
+    buildPairsList(players, playersList);
   }
-  inputEl.value = "";
-  const randomArr = createRandomArr(trimmedArr);
-  const players = createPairs(randomArr);
-  buildPairsList(players, playersList);
 }
 
 formEl?.addEventListener('submit', submitHandler)
