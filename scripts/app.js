@@ -1,5 +1,3 @@
-const people = ['Radek ', ' Darek K', 'Darek Kr ', 'Grzesiek ', ' Piotr', ' Janusz', 'Dawid', 'Filip', 'Kajtek', 'Ela'];
-
 const playersList = document.querySelector('.players-list');
 const formEl = document.querySelector('form');
 const inputEl = document.querySelector('.name');
@@ -52,19 +50,25 @@ export const buildPairsList = (players, parent) => {
 
 export const submitHandler = event => {
   event.preventDefault();
-  messageEl.textContent = "";
-  const str = inputEl.value;
-  const strArr = stringToArr(str);
-  const trimmedArr = trimmed(strArr);
-  const checkEven = checkIfEven(trimmedArr);
-  if(!checkEven) {
-    messageEl.textContent = "Podano nieparzystą liczbę osób, dodaj kogoś jeszcze."
-    return;
+  console.log(inputEl.value.length)
+  if(inputEl.value === "") {
+    messageEl.textContent = "Podaj imiona zawodników"
+  } else {
+    console.log('test')
+    messageEl.textContent = "";
+    const str = inputEl.value;
+    const strArr = stringToArr(str);
+    const trimmedArr = trimmed(strArr);
+    const checkEven = checkIfEven(trimmedArr);
+    if(!checkEven) {
+      messageEl.textContent = "Podano nieparzystą liczbę osób, dodaj kogoś jeszcze.)."
+      return;
+    }
+    inputEl.value = "";
+    const randomArr = createRandomArr(trimmedArr);
+    const players = createPairs(randomArr);
+    buildPairsList(players, playersList);
   }
-  inputEl.value = "";
-  const randomArr = createRandomArr(trimmedArr);
-  const players = createPairs(randomArr);
-  buildPairsList(players, playersList);
 }
 
 
