@@ -5,18 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Losowanie zawodników</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
-      <div class="form-group">
-        <label for="name">Podaj imiona zawodników oddzielone przecinkami</label>
-        <textarea class="name" rows="5" cols="33"></textarea>
-        <input type="submit" value="Losuj" />
-      </div>
-    </form>
-    <p class="message"></p>
-    <h1>Lista zawodników</h1>
-    <ul class="players-list"></ul>
+    <main>
+      <form>
+        <div class="form-group">
+          <label for="name"
+            >Podaj imiona zawodników oddzielone przecinkami</label
+          >
+          <textarea class="name" rows="8" cols="44"></textarea>
+          <span class="message"></span>
+          <input type="submit" value="Losuj" />
+        </div>
+      </form>
+      <section class="pairs">
+        <h1>Lista zawodników</h1>
+        <!-- <ul class="players-list"></ul> -->
+        <table>
+          <tbody class="players-list">
+
+          </tbody>
+        </table>
+      </section>
+    </main>
     <script type="module" src="./scripts/app.js"></script>
   </body>
 </html>
