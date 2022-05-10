@@ -1,5 +1,5 @@
-const playersList = document.querySelector('.players-list');
 const formEl = document.querySelector('form');
+const playersList = document.querySelector('.players-list');
 const inputEl = document.querySelector('.name');
 const messageEl = document.querySelector('.message');
 
@@ -50,11 +50,9 @@ export const buildPairsList = (players, parent) => {
 
 export const submitHandler = event => {
   event.preventDefault();
-  console.log(inputEl.value.length)
   if(inputEl.value === "") {
     messageEl.textContent = "Podaj imiona zawodników"
   } else {
-    console.log('test')
     messageEl.textContent = "";
     const str = inputEl.value;
     const strArr = stringToArr(str);
@@ -70,6 +68,5 @@ export const submitHandler = event => {
     buildPairsList(players, playersList);
   }
 }
-
 
 formEl?.addEventListener('submit', submitHandler)
