@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raffle</title>
-</head>
-<body>
-  <form>
-    <label for="name">Podaj imiona zawodników oddzielone przecinkami</label>
-    <input class="name" type="text">
-    <input type="submit" value="send">
-  </form>
-  <p class="message"></p>
-  <h1>Lista zawodników</h1>
-  <ul class="players-list"></ul>
-  <script src="./scripts/app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Losowanie zawodników</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <form>
+        <div class="form-group">
+          <label for="name"
+            >Podaj imiona zawodników oddzielone przecinkami</label
+          >
+          <textarea class="name" rows="8" cols="44"></textarea>
+          <span class="message"></span>
+          <input type="submit" value="Losuj" />
+        </div>
+      </form>
+      <section class="pairs">
+        <h1>Lista zawodników</h1>
+        <!-- <ul class="players-list"></ul> -->
+        <table>
+          <tbody class="players-list">
+
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <script type="module" src="./scripts/app.js"></script>
+  </body>
 </html>
