@@ -39,13 +39,12 @@ export const createPairs = (arr) => {
   return pairs;
 }
 
+// Generating HTML with players pairs
 export const buildPairsList = (players, parent) => {
-  players.forEach(el => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${el[0]} : ${el[1]}`;
-    parent.appendChild(listItem);
-  })
-  return parent;
+  const html = `<tr>
+  ${players.map(player => `<td>${player[0]}</td><td>:</td><td>${player[1]}</td>`).join()}
+  </tr>`
+  parent.innerHTML = html;
 }
 
 export const submitHandler = event => {
