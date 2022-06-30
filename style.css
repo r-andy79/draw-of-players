@@ -59,6 +59,7 @@ table tbody tr td {
 
 table tbody tr td:first-child {
   display: block;
+  text-align: right;
   margin-right: 1em;
 }
 

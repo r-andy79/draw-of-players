@@ -41,9 +41,11 @@ export const createPairs = (arr) => {
 
 // Generating HTML with players pairs
 export const buildPairsList = (players, parent) => {
-  const html = `<tr>
-  ${players.map(player => `<td>${player[0]}</td><td>:</td><td>${player[1]}</td>`).join()}
-  </tr>`
+  console.log(players);
+  const html = `
+  ${players.map(player => `<tr><td>${player[0]}</td><td>:</td><td>${player[1]}</td></tr>`).join("")}
+  `
+  console.log(html);
   parent.innerHTML = html;
 }
 
